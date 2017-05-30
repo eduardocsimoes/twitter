@@ -1,0 +1,13 @@
+body{margin: 0;background-color: #1e1e1e;}
+.topo{width: 100%;max-width: 980px;height: 470px;margin: auto;}
+.topo1{height: 120px;}
+.banner{height: 350px;background-color: #514e51;}
+.menu{width: 100%; max-width: 980px; height: 50px; background-color: #0062b7;margin: auto;}
+.conteiner{width: 100%; max-width: 980px; min-height: 400px; background-color: #FFFFFF;margin: auto;}
+.rodape{width: 100%; max-width: 980px; height: 100px; background-color: #303030;margin: auto; margin-bottom: 50px;}
+.menu ul{list-style: none; margin: 0; padding: 0;}
+.menu li{float: left; height: 50px; line-height: 50px; padding-left: 10px; padding-right: 10px; color: #FFFFFF;}
+.home_sobre{padding-left: 20px; padding-right: 20px;}
+.home_sobre img{float: left; margin: 0 20px 0 20px;}
+.home_sobre h4{margin: 0; padding: 0;}
+.home_portifolio h4{clear: both;padding: 20px;}
