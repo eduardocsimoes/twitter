@@ -3,8 +3,6 @@
       
         public function run(){
             
-            echo $_SERVER['PHP_SELF'];
-            
             $url = explode('index.php',$_SERVER['PHP_SELF']);
             $url = end($url);
             
@@ -30,14 +28,6 @@
                 $currentController = 'homeController';
                 $currentAction = 'index';                
             }         
-            
-            echo '<br/> CURRENT CONTROLLER: '.$currentController;
-            echo '<br/> CURRENT ACTION: '.$currentAction.'<br/>';
-            echo '<br/> PARAMS: ';
-            print_r($params);
-            echo '<br/>';
-            
-            require_once 'core/controller.php';
             
             $c = new $currentController();
             call_user_func_array(array($c, $currentAction), $params);
