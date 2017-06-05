@@ -6,3 +6,4 @@ table th{text-align: left;}
 .inputarea{height: 50px;background-color: #FFFFFF;}
 #msg{margin: 0;padding: 0;width: 100%;height: 100%;font-size: 15px;}
 .msgitem{margin-bottom: 5px;}
+.disabled{opacity:0.65;cursor:not-allowed;display:block;}
