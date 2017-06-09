@@ -51,5 +51,11 @@ function keyUpChat(obj, event){
         var nome = $('.inputarea').attr('data-nome');
         
         $('.chatarea').append('<div class="msgitem">'+hr+' <strong>'+nome+'</strong>:    '+msg+'</div>');
+        
+        $.ajax({
+           url: 'http://localhost:8080/chat/ajax/sendMessage',
+           type: 'POST',
+           data: {msg:msg}
+        });
     }
 }
