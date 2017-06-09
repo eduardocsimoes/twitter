@@ -43,4 +43,27 @@ class Chamados extends model{
         
         return $id; 
     }
+    
+    public function getLastMsg($id, $area){
+        $dt = '';
+        
+        if(!empty($id) && (!empty($area))){
+            $sql = "SELECT data_last_".$area." FROM chamados WHERE id = '$id'";
+            $sql = $this->db->query($sql);
+
+            if($sql->rowCount() > 0){
+                $sql = $sql->fetch();
+                $dt = $sql['dt'];
+            }    
+        }
+        
+        return $dt;
+    }
+    
+    public function updateLastMsg($id, $area){
+        if(!empty($id) && (!empty($area))){
+            $sql = "UPDATE chamados SET data_last_".$area." = NOW() WHERE id = '$id'";
+            $this->db->query($sql);
+        }
+    }
 }

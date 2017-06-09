@@ -53,9 +53,39 @@ function keyUpChat(obj, event){
         $('.chatarea').append('<div class="msgitem">'+hr+' <strong>'+nome+'</strong>:    '+msg+'</div>');
         
         $.ajax({
-           url: 'http://localhost:8080/chat/ajax/sendMessage',
+           url: 'http://localhost:8080/chat/ajax/sendmessage',
            type: 'POST',
            data: {msg:msg}
+//           ,
+//            success:function() {
+//                alert('Mensagem entegue com sucesso!!');
+//            },
+//            error:function() {
+//                alert('Erro ao entregar a mensagem!!');
+//            }
         });
     }
+}
+
+function updateChat(){
+    $.ajax({
+        url:'http://localhost:8080/chat/ajax/getmessage',
+        dataType:'json',
+        success:function(json){
+            if(json.mensagens > 0){
+                for(var i in json.mensagens){
+                    var hr = json.mensagens[i].hr;
+                    var nome = json.mensagens[i].nome;
+                    var msg = json.mensagens[i].msg;
+                
+                    $('.chatarea').append('<div class="msgitem">'+hr+' <strong>'+nome+'</strong>:    '+msg+'</div>');
+                }
+            }    
+            
+            setTimeout(updateChat, 2000);
+        },
+        error:function(){
+            setTimeout(updateChat, 2000);
+        }
+    });
 }
