@@ -48,7 +48,7 @@ class Chamados extends model{
         $dt = '';
         
         if(!empty($id) && (!empty($area))){
-            $sql = "SELECT data_last_".$area." FROM chamados WHERE id = '$id'";
+            $sql = "SELECT data_last_".$area." as dt FROM chamados WHERE id = '$id'";
             $sql = $this->db->query($sql);
 
             if($sql->rowCount() > 0){

@@ -7,7 +7,7 @@ class Mensagens extends model{
         }
     }
     
-    public function getMessage($idchamado){
+    public function getMessage($idchamado,$lastmsg){
         $array = array();
         
         $sql = "SELECT * FROM mensagens WHERE id_chamado = '$idchamado' AND data_enviado > '$lastmsg'";
@@ -15,6 +15,10 @@ class Mensagens extends model{
         
         if($sql->rowCount() > 0){
             $array = $sql->fetchAll();
+            
+            foreach($array as $chave => $valor){
+                $array[$chave]['data_enviado'] = date('H:i', strtotime($valor['data_enviado']));
+            }
         }
         
         $c = new Chamados();

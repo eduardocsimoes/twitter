@@ -20,9 +20,7 @@ class ajaxController extends control{
     }
     
     public function sendMessage(){
-        var_dump($_POST['msg']);
         if(isset($_POST['msg']) && !empty($_POST['msg'])){
-            echo 'teste1';
             $msg = addslashes($_POST['msg']);
             $idchamado = $_SESSION['chatwindow'];
             if($_SESSION['area'] == 'suporte'){
@@ -44,7 +42,7 @@ class ajaxController extends control{
         
         $idchamado = $_SESSION['chatwindow'];
         $area = $_SESSION['area'];
-        $lastmsg = $c->getLastMsg($idchamado, $idchamado);
+        $lastmsg = $c->getLastMsg($idchamado, $area);
         
         $dados['mensagens'] = $m->getMessage($idchamado, $lastmsg);
         
